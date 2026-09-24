@@ -58,6 +58,7 @@ jobs:
             cargo check \
               --manifest-path "$RUNNER_TEMP/hk32-metapac/Cargo.toml" \
               --target thumbv6m-none-eabi \
+              --no-default-features \
               --features "$feature,rt"
           done <<< "$features"
 
@@ -67,14 +68,8 @@ jobs:
             --exclude='.git/' \
             --exclude='target/' \
             --exclude='Cargo.lock' \
-            --exclude='README.md' \
-            --exclude='LICENSE' \
             "$RUNNER_TEMP/hk32-metapac/" metapac/
 
-          # Keep repository-level documentation and licensing if the generated
-          # repository already maintains them. Bootstrap them on first sync.
-          test -f metapac/README.md || cp README.md metapac/README.md
-          test -f metapac/LICENSE || cp LICENSE metapac/LICENSE
           cp .gitignore metapac/.gitignore
 
       - name: Commit and push generated sources
