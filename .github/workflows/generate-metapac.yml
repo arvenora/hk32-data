@@ -41,9 +41,6 @@ jobs:
           cargo run -p hk32-metapac-gen -- \
             --output-dir "$RUNNER_TEMP/hk32-metapac"
 
-      - name: Format generated PAC
-        run: cargo fmt --manifest-path "$RUNNER_TEMP/hk32-metapac/Cargo.toml"
-
       - name: Check every chip feature
         shell: bash
         run: |
@@ -68,6 +65,8 @@ jobs:
         run: |
           rsync -a --delete \
             --exclude='.git/' \
+            --exclude='target/' \
+            --exclude='Cargo.lock' \
             --exclude='README.md' \
             --exclude='LICENSE' \
             "$RUNNER_TEMP/hk32-metapac/" metapac/
@@ -76,6 +75,7 @@ jobs:
           # repository already maintains them. Bootstrap them on first sync.
           test -f metapac/README.md || cp README.md metapac/README.md
           test -f metapac/LICENSE || cp LICENSE metapac/LICENSE
+          cp .gitignore metapac/.gitignore
 
       - name: Commit and push generated sources
         working-directory: metapac
@@ -85,6 +85,8 @@ jobs:
           set -euo pipefail
           git config user.name "hk32-data generator"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -r --cached --ignore-unmatch target
+          git rm --cached --ignore-unmatch Cargo.lock
           git add --all
 
           if git diff --cached --quiet; then

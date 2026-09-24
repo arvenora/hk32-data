@@ -1,6 +1,10 @@
-use std::{fs, path::Path};
+use std::{
+    fs,
+    path::{Path, PathBuf},
+    process::Command,
+};
 
-use anyhow::{Context, Result};
+use anyhow::{Context, Result, bail};
 use chiptool::{generate, ir::IR};
 
 use crate::data::{Chip, Memory};
@@ -43,6 +47,37 @@ pub fn write_metapac(chips: &[GeneratedChip], output_dir: &Path) -> Result<()> {
     fs::write(output_dir.join("Cargo.toml"), render_cargo_toml(chips))?;
     fs::write(output_dir.join("build.rs"), render_build_rs(chips))?;
     fs::write(output_dir.join("src/lib.rs"), render_lib_rs())?;
+    format_rust_files(output_dir)?;
+    Ok(())
+}
+
+fn format_rust_files(root: &Path) -> Result<()> {
+    let mut files = Vec::new();
+    collect_rust_files(root, &mut files)?;
+    files.sort();
+
+    for path in files {
+        let status = Command::new("rustfmt")
+            .args(["--edition", "2024", "--config", "max_width=90"])
+            .arg(&path)
+            .status()
+            .with_context(|| format!("running rustfmt for {}", path.display()))?;
+        if !status.success() {
+            bail!("rustfmt failed for {}", path.display());
+        }
+    }
+    Ok(())
+}
+
+fn collect_rust_files(directory: &Path, files: &mut Vec<PathBuf>) -> Result<()> {
+    for entry in fs::read_dir(directory)? {
+        let path = entry?.path();
+        if path.is_dir() {
+            collect_rust_files(&path, files)?;
+        } else if path.extension().is_some_and(|extension| extension == "rs") {
+            files.push(path);
+        }
+    }
     Ok(())
 }
 
