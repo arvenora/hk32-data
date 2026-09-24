@@ -1,0 +1,61 @@
+block/DBGMCU:
+  description: Debug support.
+  items:
+  - name: IDCODE
+    description: MCU Device ID Code Register.
+    byte_offset: 0
+    access: Read
+    fieldset: IDCODE
+  - name: CR
+    description: MCU Device debug control Register.
+    byte_offset: 4
+    fieldset: CR
+  - name: APB1_FZ
+    description: MCU Device debug apb1 Register.
+    byte_offset: 8
+    fieldset: APB1_FZ
+fieldset/APB1_FZ:
+  description: MCU Device debug apb1 Register.
+  fields:
+  - name: DBG_TIM1_STOP
+    description: Debug TIM1 Stop Mode.
+    bit_offset: 0
+    bit_size: 1
+  - name: DBG_TIM2_STOP
+    description: Debug TIM2 Stop Mode.
+    bit_offset: 1
+    bit_size: 1
+  - name: DBG_TIM6_STOP
+    description: Debug TIM6 Stop Mode.
+    bit_offset: 4
+    bit_size: 1
+  - name: DBG_WWDG_STOP
+    description: Debug WWDG Stop Mode.
+    bit_offset: 11
+    bit_size: 1
+  - name: DBG_IWDG_STOP
+    description: Debug IWDG Stop Mode.
+    bit_offset: 12
+    bit_size: 1
+  - name: DBG_I2C1_SMBUS_TIMEOUT
+    description: Debug I2C1_SMBUS Stop Mode.
+    bit_offset: 21
+    bit_size: 1
+fieldset/CR:
+  description: MCU Device debug control Register.
+  fields:
+  - name: DBG_STOP
+    description: Debug Stop Mode.
+    bit_offset: 1
+    bit_size: 1
+fieldset/IDCODE:
+  description: MCU Device ID Code Register.
+  fields:
+  - name: DEV_ID
+    description: Device Identifier.
+    bit_offset: 0
+    bit_size: 12
+  - name: REV_ID
+    description: Revision Identifier.
+    bit_offset: 16
+    bit_size: 16

@@ -1,0 +1,802 @@
+block/GPIO:
+  description: General-purpose I/Os.
+  items:
+  - name: MODER
+    description: GPIO port mode register.
+    byte_offset: 0
+    fieldset: MODER
+  - name: OTYPER
+    description: GPIO port output type register.
+    byte_offset: 4
+    fieldset: OTYPER
+  - name: OSPEEDR
+    description: GPIO port output speed register.
+    byte_offset: 8
+    fieldset: OSPEEDR
+  - name: PUPDR
+    description: GPIO port pull-up/pull-down register.
+    byte_offset: 12
+    fieldset: PUPDR
+  - name: IDR
+    description: GPIO port input data register.
+    byte_offset: 16
+    access: Read
+    fieldset: IDR
+  - name: ODR
+    description: GPIO port output data register.
+    byte_offset: 20
+    fieldset: ODR
+  - name: BSRR
+    description: GPIO port bit set/reset register.
+    byte_offset: 24
+    access: Write
+    fieldset: BSRR
+  - name: LCKR
+    description: GPIO port configuration lock register.
+    byte_offset: 28
+    fieldset: LCKR
+  - name: AFRL
+    description: GPIO alternate function low register.
+    byte_offset: 32
+    fieldset: AFRL
+  - name: AFRH
+    description: GPIO alternate function high register.
+    byte_offset: 36
+    fieldset: AFRH
+  - name: BRR
+    description: Port bit reset register.
+    byte_offset: 40
+    access: Write
+    fieldset: BRR
+  - name: IOSR
+    description: IOSR.
+    byte_offset: 48
+    fieldset: IOSR
+fieldset/AFRH:
+  description: GPIO alternate function high register.
+  fields:
+  - name: AFSEL8
+    description: Alternate function selection for port x bit y (y = 8..15).
+    bit_offset: 0
+    bit_size: 4
+  - name: AFSEL9
+    description: Alternate function selection for port x bit y (y = 8..15).
+    bit_offset: 4
+    bit_size: 4
+  - name: AFSEL10
+    description: Alternate function selection for port x bit y (y = 8..15).
+    bit_offset: 8
+    bit_size: 4
+  - name: AFSEL11
+    description: Alternate function selection for port x bit y (y = 8..15).
+    bit_offset: 12
+    bit_size: 4
+  - name: AFSEL12
+    description: Alternate function selection for port x bit y (y = 8..15).
+    bit_offset: 16
+    bit_size: 4
+  - name: AFSEL13
+    description: Alternate function selection for port x bit y (y = 8..15).
+    bit_offset: 20
+    bit_size: 4
+  - name: AFSEL14
+    description: Alternate function selection for port x bit y (y = 8..15).
+    bit_offset: 24
+    bit_size: 4
+  - name: AFSEL15
+    description: Alternate function selection for port x bit y (y = 8..15).
+    bit_offset: 28
+    bit_size: 4
+fieldset/AFRL:
+  description: GPIO alternate function low register.
+  fields:
+  - name: AFSEL0
+    description: Alternate function selection for port x bit y (y = 0..7).
+    bit_offset: 0
+    bit_size: 4
+  - name: AFSEL1
+    description: Alternate function selection for port x bit y (y = 0..7).
+    bit_offset: 4
+    bit_size: 4
+  - name: AFSEL2
+    description: Alternate function selection for port x bit y (y = 0..7).
+    bit_offset: 8
+    bit_size: 4
+  - name: AFSEL3
+    description: Alternate function selection for port x bit y (y = 0..7).
+    bit_offset: 12
+    bit_size: 4
+  - name: AFSEL4
+    description: Alternate function selection for port x bit y (y = 0..7).
+    bit_offset: 16
+    bit_size: 4
+  - name: AFSEL5
+    description: Alternate function selection for port x bit y (y = 0..7).
+    bit_offset: 20
+    bit_size: 4
+  - name: AFSEL6
+    description: Alternate function selection for port x bit y (y = 0..7).
+    bit_offset: 24
+    bit_size: 4
+  - name: AFSEL7
+    description: Alternate function selection for port x bit y (y = 0..7).
+    bit_offset: 28
+    bit_size: 4
+fieldset/BRR:
+  description: Port bit reset register.
+  fields:
+  - name: BR0
+    description: Port x Reset bit y.
+    bit_offset: 0
+    bit_size: 1
+  - name: BR1
+    description: Port x Reset bit y.
+    bit_offset: 1
+    bit_size: 1
+  - name: BR2
+    description: Port x Reset bit y.
+    bit_offset: 2
+    bit_size: 1
+  - name: BR3
+    description: Port x Reset bit y.
+    bit_offset: 3
+    bit_size: 1
+  - name: BR4
+    description: Port x Reset bit y.
+    bit_offset: 4
+    bit_size: 1
+  - name: BR5
+    description: Port x Reset bit y.
+    bit_offset: 5
+    bit_size: 1
+  - name: BR6
+    description: Port x Reset bit y.
+    bit_offset: 6
+    bit_size: 1
+  - name: BR7
+    description: Port x Reset bit y.
+    bit_offset: 7
+    bit_size: 1
+  - name: BR8
+    description: Port x Reset bit y.
+    bit_offset: 8
+    bit_size: 1
+  - name: BR9
+    description: Port x Reset bit y.
+    bit_offset: 9
+    bit_size: 1
+  - name: BR10
+    description: Port x Reset bit y.
+    bit_offset: 10
+    bit_size: 1
+  - name: BR11
+    description: Port x Reset bit y.
+    bit_offset: 11
+    bit_size: 1
+  - name: BR12
+    description: Port x Reset bit y.
+    bit_offset: 12
+    bit_size: 1
+  - name: BR13
+    description: Port x Reset bit y.
+    bit_offset: 13
+    bit_size: 1
+  - name: BR14
+    description: Port x Reset bit y.
+    bit_offset: 14
+    bit_size: 1
+  - name: BR15
+    description: Port x Reset bit y.
+    bit_offset: 15
+    bit_size: 1
+fieldset/BSRR:
+  description: GPIO port bit set/reset register.
+  fields:
+  - name: BS0
+    description: Port x set bit y (y= 0..15).
+    bit_offset: 0
+    bit_size: 1
+  - name: BS1
+    description: Port x set bit y (y= 0..15).
+    bit_offset: 1
+    bit_size: 1
+  - name: BS2
+    description: Port x set bit y (y= 0..15).
+    bit_offset: 2
+    bit_size: 1
+  - name: BS3
+    description: Port x set bit y (y= 0..15).
+    bit_offset: 3
+    bit_size: 1
+  - name: BS4
+    description: Port x set bit y (y= 0..15).
+    bit_offset: 4
+    bit_size: 1
+  - name: BS5
+    description: Port x set bit y (y= 0..15).
+    bit_offset: 5
+    bit_size: 1
+  - name: BS6
+    description: Port x set bit y (y= 0..15).
+    bit_offset: 6
+    bit_size: 1
+  - name: BS7
+    description: Port x set bit y (y= 0..15).
+    bit_offset: 7
+    bit_size: 1
+  - name: BS8
+    description: Port x set bit y (y= 0..15).
+    bit_offset: 8
+    bit_size: 1
+  - name: BS9
+    description: Port x set bit y (y= 0..15).
+    bit_offset: 9
+    bit_size: 1
+  - name: BS10
+    description: Port x set bit y (y= 0..15).
+    bit_offset: 10
+    bit_size: 1
+  - name: BS11
+    description: Port x set bit y (y= 0..15).
+    bit_offset: 11
+    bit_size: 1
+  - name: BS12
+    description: Port x set bit y (y= 0..15).
+    bit_offset: 12
+    bit_size: 1
+  - name: BS13
+    description: Port x set bit y (y= 0..15).
+    bit_offset: 13
+    bit_size: 1
+  - name: BS14
+    description: Port x set bit y (y= 0..15).
+    bit_offset: 14
+    bit_size: 1
+  - name: BS15
+    description: Port x set bit y (y= 0..15).
+    bit_offset: 15
+    bit_size: 1
+  - name: BR0
+    description: Port x set bit y (y= 0..15).
+    bit_offset: 16
+    bit_size: 1
+  - name: BR1
+    description: Port x reset bit y (y = 0..15).
+    bit_offset: 17
+    bit_size: 1
+  - name: BR2
+    description: Port x reset bit y (y = 0..15).
+    bit_offset: 18
+    bit_size: 1
+  - name: BR3
+    description: Port x reset bit y (y = 0..15).
+    bit_offset: 19
+    bit_size: 1
+  - name: BR4
+    description: Port x reset bit y (y = 0..15).
+    bit_offset: 20
+    bit_size: 1
+  - name: BR5
+    description: Port x reset bit y (y = 0..15).
+    bit_offset: 21
+    bit_size: 1
+  - name: BR6
+    description: Port x reset bit y (y = 0..15).
+    bit_offset: 22
+    bit_size: 1
+  - name: BR7
+    description: Port x reset bit y (y = 0..15).
+    bit_offset: 23
+    bit_size: 1
+  - name: BR8
+    description: Port x reset bit y (y = 0..15).
+    bit_offset: 24
+    bit_size: 1
+  - name: BR9
+    description: Port x reset bit y (y = 0..15).
+    bit_offset: 25
+    bit_size: 1
+  - name: BR10
+    description: Port x reset bit y (y = 0..15).
+    bit_offset: 26
+    bit_size: 1
+  - name: BR11
+    description: Port x reset bit y (y = 0..15).
+    bit_offset: 27
+    bit_size: 1
+  - name: BR12
+    description: Port x reset bit y (y = 0..15).
+    bit_offset: 28
+    bit_size: 1
+  - name: BR13
+    description: Port x reset bit y (y = 0..15).
+    bit_offset: 29
+    bit_size: 1
+  - name: BR14
+    description: Port x reset bit y (y = 0..15).
+    bit_offset: 30
+    bit_size: 1
+  - name: BR15
+    description: Port x reset bit y (y = 0..15).
+    bit_offset: 31
+    bit_size: 1
+fieldset/IDR:
+  description: GPIO port input data register.
+  fields:
+  - name: IDR0
+    description: Port input data (y = 0..15).
+    bit_offset: 0
+    bit_size: 1
+  - name: IDR1
+    description: Port input data (y = 0..15).
+    bit_offset: 1
+    bit_size: 1
+  - name: IDR2
+    description: Port input data (y = 0..15).
+    bit_offset: 2
+    bit_size: 1
+  - name: IDR3
+    description: Port input data (y = 0..15).
+    bit_offset: 3
+    bit_size: 1
+  - name: IDR4
+    description: Port input data (y = 0..15).
+    bit_offset: 4
+    bit_size: 1
+  - name: IDR5
+    description: Port input data (y = 0..15).
+    bit_offset: 5
+    bit_size: 1
+  - name: IDR6
+    description: Port input data (y = 0..15).
+    bit_offset: 6
+    bit_size: 1
+  - name: IDR7
+    description: Port input data (y = 0..15).
+    bit_offset: 7
+    bit_size: 1
+  - name: IDR8
+    description: Port input data (y = 0..15).
+    bit_offset: 8
+    bit_size: 1
+  - name: IDR9
+    description: Port input data (y = 0..15).
+    bit_offset: 9
+    bit_size: 1
+  - name: IDR10
+    description: Port input data (y = 0..15).
+    bit_offset: 10
+    bit_size: 1
+  - name: IDR11
+    description: Port input data (y = 0..15).
+    bit_offset: 11
+    bit_size: 1
+  - name: IDR12
+    description: Port input data (y = 0..15).
+    bit_offset: 12
+    bit_size: 1
+  - name: IDR13
+    description: Port input data (y = 0..15).
+    bit_offset: 13
+    bit_size: 1
+  - name: IDR14
+    description: Port input data (y = 0..15).
+    bit_offset: 14
+    bit_size: 1
+  - name: IDR15
+    description: Port input data (y = 0..15).
+    bit_offset: 15
+    bit_size: 1
+fieldset/IOSR:
+  description: IOSR.
+  fields:
+  - name: IOSENX
+    description: IOSENX.
+    bit_offset: 0
+    bit_size: 16
+fieldset/LCKR:
+  description: GPIO port configuration lock register.
+  fields:
+  - name: LCK0
+    description: Port x lock bit y (y= 0..15).
+    bit_offset: 0
+    bit_size: 1
+  - name: LCK1
+    description: Port x lock bit y (y= 0..15).
+    bit_offset: 1
+    bit_size: 1
+  - name: LCK2
+    description: Port x lock bit y (y= 0..15).
+    bit_offset: 2
+    bit_size: 1
+  - name: LCK3
+    description: Port x lock bit y (y= 0..15).
+    bit_offset: 3
+    bit_size: 1
+  - name: LCK4
+    description: Port x lock bit y (y= 0..15).
+    bit_offset: 4
+    bit_size: 1
+  - name: LCK5
+    description: Port x lock bit y (y= 0..15).
+    bit_offset: 5
+    bit_size: 1
+  - name: LCK6
+    description: Port x lock bit y (y= 0..15).
+    bit_offset: 6
+    bit_size: 1
+  - name: LCK7
+    description: Port x lock bit y (y= 0..15).
+    bit_offset: 7
+    bit_size: 1
+  - name: LCK8
+    description: Port x lock bit y (y= 0..15).
+    bit_offset: 8
+    bit_size: 1
+  - name: LCK9
+    description: Port x lock bit y (y= 0..15).
+    bit_offset: 9
+    bit_size: 1
+  - name: LCK10
+    description: Port x lock bit y (y= 0..15).
+    bit_offset: 10
+    bit_size: 1
+  - name: LCK11
+    description: Port x lock bit y (y= 0..15).
+    bit_offset: 11
+    bit_size: 1
+  - name: LCK12
+    description: Port x lock bit y (y= 0..15).
+    bit_offset: 12
+    bit_size: 1
+  - name: LCK13
+    description: Port x lock bit y (y= 0..15).
+    bit_offset: 13
+    bit_size: 1
+  - name: LCK14
+    description: Port x lock bit y (y= 0..15).
+    bit_offset: 14
+    bit_size: 1
+  - name: LCK15
+    description: Port x lock bit y (y= 0..15).
+    bit_offset: 15
+    bit_size: 1
+  - name: LCKK
+    description: Port x lock bit y (y= 0..15).
+    bit_offset: 16
+    bit_size: 1
+fieldset/MODER:
+  description: GPIO port mode register.
+  fields:
+  - name: MODER0
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 0
+    bit_size: 2
+  - name: MODER1
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 2
+    bit_size: 2
+  - name: MODER2
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 4
+    bit_size: 2
+  - name: MODER3
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 6
+    bit_size: 2
+  - name: MODER4
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 8
+    bit_size: 2
+  - name: MODER5
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 10
+    bit_size: 2
+  - name: MODER6
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 12
+    bit_size: 2
+  - name: MODER7
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 14
+    bit_size: 2
+  - name: MODER8
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 16
+    bit_size: 2
+  - name: MODER9
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 18
+    bit_size: 2
+  - name: MODER10
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 20
+    bit_size: 2
+  - name: MODER11
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 22
+    bit_size: 2
+  - name: MODER12
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 24
+    bit_size: 2
+  - name: MODER13
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 26
+    bit_size: 2
+  - name: MODER14
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 28
+    bit_size: 2
+  - name: MODER15
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 30
+    bit_size: 2
+fieldset/ODR:
+  description: GPIO port output data register.
+  fields:
+  - name: ODR0
+    description: Port output data (y = 0..15).
+    bit_offset: 0
+    bit_size: 1
+  - name: ODR1
+    description: Port output data (y = 0..15).
+    bit_offset: 1
+    bit_size: 1
+  - name: ODR2
+    description: Port output data (y = 0..15).
+    bit_offset: 2
+    bit_size: 1
+  - name: ODR3
+    description: Port output data (y = 0..15).
+    bit_offset: 3
+    bit_size: 1
+  - name: ODR4
+    description: Port output data (y = 0..15).
+    bit_offset: 4
+    bit_size: 1
+  - name: ODR5
+    description: Port output data (y = 0..15).
+    bit_offset: 5
+    bit_size: 1
+  - name: ODR6
+    description: Port output data (y = 0..15).
+    bit_offset: 6
+    bit_size: 1
+  - name: ODR7
+    description: Port output data (y = 0..15).
+    bit_offset: 7
+    bit_size: 1
+  - name: ODR8
+    description: Port output data (y = 0..15).
+    bit_offset: 8
+    bit_size: 1
+  - name: ODR9
+    description: Port output data (y = 0..15).
+    bit_offset: 9
+    bit_size: 1
+  - name: ODR10
+    description: Port output data (y = 0..15).
+    bit_offset: 10
+    bit_size: 1
+  - name: ODR11
+    description: Port output data (y = 0..15).
+    bit_offset: 11
+    bit_size: 1
+  - name: ODR12
+    description: Port output data (y = 0..15).
+    bit_offset: 12
+    bit_size: 1
+  - name: ODR13
+    description: Port output data (y = 0..15).
+    bit_offset: 13
+    bit_size: 1
+  - name: ODR14
+    description: Port output data (y = 0..15).
+    bit_offset: 14
+    bit_size: 1
+  - name: ODR15
+    description: Port output data (y = 0..15).
+    bit_offset: 15
+    bit_size: 1
+fieldset/OSPEEDR:
+  description: GPIO port output speed register.
+  fields:
+  - name: OSPEEDR0
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 0
+    bit_size: 2
+  - name: OSPEEDR1
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 2
+    bit_size: 2
+  - name: OSPEEDR2
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 4
+    bit_size: 2
+  - name: OSPEEDR3
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 6
+    bit_size: 2
+  - name: OSPEEDR4
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 8
+    bit_size: 2
+  - name: OSPEEDR5
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 10
+    bit_size: 2
+  - name: OSPEEDR6
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 12
+    bit_size: 2
+  - name: OSPEEDR7
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 14
+    bit_size: 2
+  - name: OSPEEDR8
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 16
+    bit_size: 2
+  - name: OSPEEDR9
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 18
+    bit_size: 2
+  - name: OSPEEDR10
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 20
+    bit_size: 2
+  - name: OSPEEDR11
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 22
+    bit_size: 2
+  - name: OSPEEDR12
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 24
+    bit_size: 2
+  - name: OSPEEDR13
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 26
+    bit_size: 2
+  - name: OSPEEDR14
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 28
+    bit_size: 2
+  - name: OSPEEDR15
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 30
+    bit_size: 2
+fieldset/OTYPER:
+  description: GPIO port output type register.
+  fields:
+  - name: OT0
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 0
+    bit_size: 1
+  - name: OT1
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 1
+    bit_size: 1
+  - name: OT2
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 2
+    bit_size: 1
+  - name: OT3
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 3
+    bit_size: 1
+  - name: OT4
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 4
+    bit_size: 1
+  - name: OT5
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 5
+    bit_size: 1
+  - name: OT6
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 6
+    bit_size: 1
+  - name: OT7
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 7
+    bit_size: 1
+  - name: OT8
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 8
+    bit_size: 1
+  - name: OT9
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 9
+    bit_size: 1
+  - name: OT10
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 10
+    bit_size: 1
+  - name: OT11
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 11
+    bit_size: 1
+  - name: OT12
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 12
+    bit_size: 1
+  - name: OT13
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 13
+    bit_size: 1
+  - name: OT14
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 14
+    bit_size: 1
+  - name: OT15
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 15
+    bit_size: 1
+fieldset/PUPDR:
+  description: GPIO port pull-up/pull-down register.
+  fields:
+  - name: PUPDR0
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 0
+    bit_size: 2
+  - name: PUPDR1
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 2
+    bit_size: 2
+  - name: PUPDR2
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 4
+    bit_size: 2
+  - name: PUPDR3
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 6
+    bit_size: 2
+  - name: PUPDR4
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 8
+    bit_size: 2
+  - name: PUPDR5
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 10
+    bit_size: 2
+  - name: PUPDR6
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 12
+    bit_size: 2
+  - name: PUPDR7
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 14
+    bit_size: 2
+  - name: PUPDR8
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 16
+    bit_size: 2
+  - name: PUPDR9
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 18
+    bit_size: 2
+  - name: PUPDR10
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 20
+    bit_size: 2
+  - name: PUPDR11
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 22
+    bit_size: 2
+  - name: PUPDR12
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 24
+    bit_size: 2
+  - name: PUPDR13
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 26
+    bit_size: 2
+  - name: PUPDR14
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 28
+    bit_size: 2
+  - name: PUPDR15
+    description: Port x configuration bits (y = 0..15).
+    bit_offset: 30
+    bit_size: 2

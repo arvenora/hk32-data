@@ -1,0 +1,55 @@
+block/CRC:
+  description: cyclic redundancy check calculation unit.
+  items:
+  - name: DR
+    description: Data register.
+    byte_offset: 0
+    fieldset: DR
+  - name: IDR
+    description: Independent data register.
+    byte_offset: 4
+    fieldset: IDR
+  - name: CR
+    description: Control register.
+    byte_offset: 8
+    fieldset: CR
+  - name: INIT
+    description: Initial CRC value.
+    byte_offset: 16
+    fieldset: INIT
+fieldset/CR:
+  description: Control register.
+  fields:
+  - name: RESET
+    description: reset bit.
+    bit_offset: 0
+    bit_size: 1
+  - name: REV_IN
+    description: Reverse input data.
+    bit_offset: 5
+    bit_size: 2
+  - name: REV_OUT
+    description: Reverse output data.
+    bit_offset: 7
+    bit_size: 1
+fieldset/DR:
+  description: Data register.
+  fields:
+  - name: DR
+    description: Data register bits.
+    bit_offset: 0
+    bit_size: 32
+fieldset/IDR:
+  description: Independent data register.
+  fields:
+  - name: IDR
+    description: General-purpose 8-bit data register bits.
+    bit_offset: 0
+    bit_size: 8
+fieldset/INIT:
+  description: Initial CRC value.
+  fields:
+  - name: INIT
+    description: Programmable initial CRC value.
+    bit_offset: 0
+    bit_size: 32

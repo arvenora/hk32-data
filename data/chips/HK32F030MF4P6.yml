@@ -1,0 +1,53 @@
+name: HK32F030MF4P6
+
+memory:
+  flash: { address: 0x08000000, size: 0x4000 }
+  ram: { address: 0x20000000, size: 0x0800 }
+
+core:
+  arch: cortex-m0
+  nvic_priority_bits: 3
+
+interrupts:
+  - { name: WWDG, number: 0 }
+  - { name: EXTI11, number: 2 }
+  - { name: FLASH, number: 3 }
+  - { name: RCC, number: 4 }
+  - { name: EXTI0, number: 5 }
+  - { name: EXTI1, number: 6 }
+  - { name: EXTI2, number: 7 }
+  - { name: EXTI3, number: 8 }
+  - { name: EXTI4, number: 9 }
+  - { name: EXTI5, number: 10 }
+  - { name: TIM1_BRK, number: 11 }
+  - { name: ADC1, number: 12 }
+  - { name: TIM1_UP_TRG_COM, number: 13 }
+  - { name: TIM1_CC, number: 14 }
+  - { name: TIM2, number: 15 }
+  - { name: TIM6, number: 17 }
+  - { name: EXTI6, number: 21 }
+  - { name: EXTI7, number: 22 }
+  - { name: I2C1, number: 23 }
+  - { name: SPI1, number: 25 }
+  - { name: USART1, number: 27 }
+
+peripherals:
+  - name: RCC
+    address: 0x40021000
+    registers: { file: rcc_f030m, block: RCC }
+    interrupts:
+      - { signal: GLOBAL, interrupt: RCC }
+
+  - name: GPIOA
+    address: 0x48000000
+    registers: { file: gpio_v1, block: GPIO }
+
+  - name: GPIOB
+    address: 0x48000400
+    registers: { file: gpio_v1, block: GPIO }
+
+  - name: USART1
+    address: 0x40013800
+    registers: { file: usart_v1, block: USART }
+    interrupts:
+      - { signal: GLOBAL, interrupt: USART1 }

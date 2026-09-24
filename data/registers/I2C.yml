@@ -1,0 +1,395 @@
+block/I2C:
+  description: Inter-integrated circuit.
+  items:
+  - name: CR1
+    description: Control register 1.
+    byte_offset: 0
+    fieldset: CR1
+  - name: CR2
+    description: Control register 2.
+    byte_offset: 4
+    fieldset: CR2
+  - name: OAR1
+    description: Own address register 1.
+    byte_offset: 8
+    fieldset: OAR1
+  - name: OAR2
+    description: Own address register 2.
+    byte_offset: 12
+    fieldset: OAR2
+  - name: TIMINGR
+    description: Timing register.
+    byte_offset: 16
+    fieldset: TIMINGR
+  - name: TIMEOUTR
+    description: Status register 1.
+    byte_offset: 20
+    fieldset: TIMEOUTR
+  - name: ISR
+    description: Interrupt and Status register.
+    byte_offset: 24
+    fieldset: ISR
+  - name: ICR
+    description: Interrupt clear register.
+    byte_offset: 28
+    access: Write
+    fieldset: ICR
+  - name: PECR
+    description: PEC register.
+    byte_offset: 32
+    access: Read
+    fieldset: PECR
+  - name: RXDR
+    description: Receive data register.
+    byte_offset: 36
+    access: Read
+    fieldset: RXDR
+  - name: TXDR
+    description: Transmit data register.
+    byte_offset: 40
+    fieldset: TXDR
+fieldset/CR1:
+  description: Control register 1.
+  fields:
+  - name: PE
+    description: Peripheral enable.
+    bit_offset: 0
+    bit_size: 1
+  - name: TXIE
+    description: TX Interrupt enable.
+    bit_offset: 1
+    bit_size: 1
+  - name: RXIE
+    description: RX Interrupt enable.
+    bit_offset: 2
+    bit_size: 1
+  - name: ADDRIE
+    description: Address match interrupt enable (slave only).
+    bit_offset: 3
+    bit_size: 1
+  - name: NACKIE
+    description: Not acknowledge received interrupt enable.
+    bit_offset: 4
+    bit_size: 1
+  - name: STOPIE
+    description: STOP detection Interrupt enable.
+    bit_offset: 5
+    bit_size: 1
+  - name: TCIE
+    description: Transfer Complete interrupt enable.
+    bit_offset: 6
+    bit_size: 1
+  - name: ERRIE
+    description: Error interrupts enable.
+    bit_offset: 7
+    bit_size: 1
+  - name: DNF
+    description: Digital noise filter.
+    bit_offset: 8
+    bit_size: 4
+  - name: ANFOFF
+    description: Analog noise filter OFF.
+    bit_offset: 12
+    bit_size: 1
+  - name: SBC
+    description: Slave byte control.
+    bit_offset: 16
+    bit_size: 1
+  - name: NOSTRETCH
+    description: Clock stretching disable.
+    bit_offset: 17
+    bit_size: 1
+  - name: WUPEN
+    description: wake up from stop mode.
+    bit_offset: 18
+    bit_size: 1
+  - name: GCEN
+    description: General call enable.
+    bit_offset: 19
+    bit_size: 1
+  - name: SMBHEN
+    description: SMBus Host address enable.
+    bit_offset: 20
+    bit_size: 1
+  - name: SMBDEN
+    description: SMBus Device Default address enable.
+    bit_offset: 21
+    bit_size: 1
+  - name: ALERTEN
+    description: SMBUS alert enable.
+    bit_offset: 22
+    bit_size: 1
+  - name: PECEN
+    description: PEC enable.
+    bit_offset: 23
+    bit_size: 1
+fieldset/CR2:
+  description: Control register 2.
+  fields:
+  - name: SADD0
+    description: Slave address bit 0 (master mode).
+    bit_offset: 0
+    bit_size: 1
+  - name: SADD1
+    description: Slave address bit 7:1 (master mode).
+    bit_offset: 1
+    bit_size: 7
+  - name: SADD8
+    description: Slave address bit 9:8 (master mode).
+    bit_offset: 8
+    bit_size: 2
+  - name: RD_WRN
+    description: Transfer direction (master mode).
+    bit_offset: 10
+    bit_size: 1
+  - name: ADD10
+    description: 10-bit addressing mode (master mode).
+    bit_offset: 11
+    bit_size: 1
+  - name: HEAD10R
+    description: 10-bit address header only read direction (master receiver mode).
+    bit_offset: 12
+    bit_size: 1
+  - name: START
+    description: Start generation.
+    bit_offset: 13
+    bit_size: 1
+  - name: STOP
+    description: Stop generation (master mode).
+    bit_offset: 14
+    bit_size: 1
+  - name: NACK
+    description: NACK generation (slave mode).
+    bit_offset: 15
+    bit_size: 1
+  - name: NBYTES
+    description: Number of bytes.
+    bit_offset: 16
+    bit_size: 8
+  - name: RELOAD
+    description: NBYTES reload mode.
+    bit_offset: 24
+    bit_size: 1
+  - name: AUTOEND
+    description: Automatic end mode (master mode).
+    bit_offset: 25
+    bit_size: 1
+  - name: PECBYTE
+    description: Packet error checking byte.
+    bit_offset: 26
+    bit_size: 1
+fieldset/ICR:
+  description: Interrupt clear register.
+  fields:
+  - name: ADDRCF
+    description: Address Matched flag clear.
+    bit_offset: 3
+    bit_size: 1
+  - name: NACKCF
+    description: Not Acknowledge flag clear.
+    bit_offset: 4
+    bit_size: 1
+  - name: STOPCF
+    description: Stop detection flag clear.
+    bit_offset: 5
+    bit_size: 1
+  - name: BERRCF
+    description: Bus error flag clear.
+    bit_offset: 8
+    bit_size: 1
+  - name: ARLOCF
+    description: Arbitration lost flag clear.
+    bit_offset: 9
+    bit_size: 1
+  - name: OVRCF
+    description: Overrun/Underrun flag clear.
+    bit_offset: 10
+    bit_size: 1
+  - name: PECCF
+    description: PEC Error flag clear.
+    bit_offset: 11
+    bit_size: 1
+  - name: TIMOUTCF
+    description: Timeout detection flag clear.
+    bit_offset: 12
+    bit_size: 1
+  - name: ALERTCF
+    description: Alert flag clear.
+    bit_offset: 13
+    bit_size: 1
+fieldset/ISR:
+  description: Interrupt and Status register.
+  fields:
+  - name: TXE
+    description: Transmit data register empty (transmitters).
+    bit_offset: 0
+    bit_size: 1
+  - name: TXIS
+    description: Transmit interrupt status (transmitters).
+    bit_offset: 1
+    bit_size: 1
+  - name: RXNE
+    description: Receive data register not empty (receivers).
+    bit_offset: 2
+    bit_size: 1
+  - name: ADDR
+    description: Address matched (slave mode).
+    bit_offset: 3
+    bit_size: 1
+  - name: NACKF
+    description: Not acknowledge received flag.
+    bit_offset: 4
+    bit_size: 1
+  - name: STOPF
+    description: Stop detection flag.
+    bit_offset: 5
+    bit_size: 1
+  - name: TC
+    description: Transfer Complete (master mode).
+    bit_offset: 6
+    bit_size: 1
+  - name: TCR
+    description: Transfer Complete Reload.
+    bit_offset: 7
+    bit_size: 1
+  - name: BERR
+    description: Bus error.
+    bit_offset: 8
+    bit_size: 1
+  - name: ARLO
+    description: Arbitration lost.
+    bit_offset: 9
+    bit_size: 1
+  - name: OVR
+    description: Overrun/Underrun (slave mode).
+    bit_offset: 10
+    bit_size: 1
+  - name: PECERR
+    description: PEC Error in reception.
+    bit_offset: 11
+    bit_size: 1
+  - name: TIMEOUT
+    description: Timeout or t_low detection flag.
+    bit_offset: 12
+    bit_size: 1
+  - name: ALERT
+    description: SMBus alert.
+    bit_offset: 13
+    bit_size: 1
+  - name: BUSY
+    description: Bus busy.
+    bit_offset: 15
+    bit_size: 1
+  - name: DIR
+    description: Transfer direction (Slave mode).
+    bit_offset: 16
+    bit_size: 1
+  - name: ADDCODE
+    description: Address match code (Slave mode).
+    bit_offset: 17
+    bit_size: 7
+fieldset/OAR1:
+  description: Own address register 1.
+  fields:
+  - name: OA1_0
+    description: Interface address.
+    bit_offset: 0
+    bit_size: 1
+  - name: OA1_1
+    description: Interface address.
+    bit_offset: 1
+    bit_size: 7
+  - name: OA1_8
+    description: Interface address.
+    bit_offset: 8
+    bit_size: 2
+  - name: OA1MODE
+    description: Own Address 1 10-bit mode.
+    bit_offset: 10
+    bit_size: 1
+  - name: OA1EN
+    description: Own Address 1 enable.
+    bit_offset: 15
+    bit_size: 1
+fieldset/OAR2:
+  description: Own address register 2.
+  fields:
+  - name: OA2
+    description: Interface address.
+    bit_offset: 1
+    bit_size: 7
+  - name: OA2MSK
+    description: Own Address 2 masks.
+    bit_offset: 8
+    bit_size: 3
+  - name: OA2EN
+    description: Own Address 2 enable.
+    bit_offset: 15
+    bit_size: 1
+fieldset/PECR:
+  description: PEC register.
+  fields:
+  - name: PEC
+    description: Packet error checking register.
+    bit_offset: 0
+    bit_size: 8
+fieldset/RXDR:
+  description: Receive data register.
+  fields:
+  - name: RXDATA
+    description: 8-bit receive data.
+    bit_offset: 0
+    bit_size: 8
+fieldset/TIMEOUTR:
+  description: Status register 1.
+  fields:
+  - name: TIMEOUTA
+    description: Bus timeout A.
+    bit_offset: 0
+    bit_size: 12
+  - name: TIDLE
+    description: Idle clock timeout detection.
+    bit_offset: 12
+    bit_size: 1
+  - name: TIMOUTEN
+    description: Clock timeout enable.
+    bit_offset: 15
+    bit_size: 1
+  - name: TIMEOUTB
+    description: Bus timeout B.
+    bit_offset: 16
+    bit_size: 12
+  - name: TEXTEN
+    description: Extended clock timeout enable.
+    bit_offset: 31
+    bit_size: 1
+fieldset/TIMINGR:
+  description: Timing register.
+  fields:
+  - name: SCLL
+    description: SCL low period (master mode).
+    bit_offset: 0
+    bit_size: 8
+  - name: SCLH
+    description: SCL high period (master mode).
+    bit_offset: 8
+    bit_size: 8
+  - name: SDADEL
+    description: Data hold time.
+    bit_offset: 16
+    bit_size: 4
+  - name: SCLDEL
+    description: Data setup time.
+    bit_offset: 20
+    bit_size: 4
+  - name: PRESC
+    description: Timing prescaler.
+    bit_offset: 28
+    bit_size: 4
+fieldset/TXDR:
+  description: Transmit data register.
+  fields:
+  - name: TXDATA
+    description: 8-bit transmit data.
+    bit_offset: 0
+    bit_size: 8

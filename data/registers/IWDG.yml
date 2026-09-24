@@ -1,0 +1,68 @@
+block/IWDG:
+  description: Independent watchdog.
+  items:
+  - name: KR
+    description: Key register.
+    byte_offset: 0
+    access: Write
+    fieldset: KR
+  - name: PR
+    description: Prescaler register.
+    byte_offset: 4
+    fieldset: PR
+  - name: RLR
+    description: Reload register.
+    byte_offset: 8
+    fieldset: RLR
+  - name: SR
+    description: Status register.
+    byte_offset: 12
+    access: Read
+    fieldset: SR
+  - name: WINR
+    description: Window register.
+    byte_offset: 16
+    fieldset: WINR
+fieldset/KR:
+  description: Key register.
+  fields:
+  - name: KEY
+    description: Key value.
+    bit_offset: 0
+    bit_size: 16
+fieldset/PR:
+  description: Prescaler register.
+  fields:
+  - name: PR
+    description: Prescaler divider.
+    bit_offset: 0
+    bit_size: 3
+fieldset/RLR:
+  description: Reload register.
+  fields:
+  - name: RL
+    description: Watchdog counter reload value.
+    bit_offset: 0
+    bit_size: 12
+fieldset/SR:
+  description: Status register.
+  fields:
+  - name: PVU
+    description: Watchdog prescaler value update.
+    bit_offset: 0
+    bit_size: 1
+  - name: RVU
+    description: Watchdog counter reload value update.
+    bit_offset: 1
+    bit_size: 1
+  - name: WVU
+    description: Watchdog counter window value update.
+    bit_offset: 2
+    bit_size: 1
+fieldset/WINR:
+  description: Window register.
+  fields:
+  - name: WIN
+    description: Watchdog counter window value.
+    bit_offset: 0
+    bit_size: 12

@@ -1,0 +1,2 @@
+max_width = 90
+imports_granularity = "Module"

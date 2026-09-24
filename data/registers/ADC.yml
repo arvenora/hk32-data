@@ -1,0 +1,257 @@
+block/ADC:
+  description: Analog-to-digital converter.
+  items:
+  - name: ISR
+    description: interrupt and status register.
+    byte_offset: 0
+    fieldset: ISR
+  - name: IER
+    description: interrupt enable register.
+    byte_offset: 4
+    fieldset: IER
+  - name: CR
+    description: control register.
+    byte_offset: 8
+    fieldset: CR
+  - name: CFGR1
+    description: configuration register 1.
+    byte_offset: 12
+    fieldset: CFGR1
+  - name: CFGR2
+    description: configuration register 2.
+    byte_offset: 16
+    fieldset: CFGR2
+  - name: SMPR
+    description: sampling time register.
+    byte_offset: 20
+    fieldset: SMPR
+  - name: TR
+    description: watchdog threshold register.
+    byte_offset: 32
+    fieldset: TR
+  - name: CHSELR
+    description: channel selection register.
+    byte_offset: 40
+    fieldset: CHSELR
+  - name: DR
+    description: data register.
+    byte_offset: 64
+    access: Read
+    fieldset: DR
+  - name: CCR
+    description: common configuration register.
+    byte_offset: 776
+    fieldset: CCR
+  - name: CR2
+    description: ADC config register 2.
+    byte_offset: 1008
+    fieldset: CR2
+fieldset/CCR:
+  description: common configuration register.
+  fields:
+  - name: VREFEN
+    description: Temperature sensor and VREFINT enable.
+    bit_offset: 22
+    bit_size: 1
+fieldset/CFGR1:
+  description: configuration register 1.
+  fields:
+  - name: SCANDIR
+    description: Scan sequence direction.
+    bit_offset: 2
+    bit_size: 1
+  - name: ALIGN
+    description: Data alignment.
+    bit_offset: 5
+    bit_size: 1
+  - name: EXTSEL
+    description: External trigger selection.
+    bit_offset: 6
+    bit_size: 3
+  - name: EXTEN
+    description: External trigger enable and polarity selection.
+    bit_offset: 10
+    bit_size: 2
+  - name: OVRMOD
+    description: Overrun management mode.
+    bit_offset: 12
+    bit_size: 1
+  - name: CONT
+    description: Single / continuous conversion mode.
+    bit_offset: 13
+    bit_size: 1
+  - name: WAIT
+    description: Wait conversion mode.
+    bit_offset: 14
+    bit_size: 1
+  - name: AUTOFF
+    description: Auto-off mode.
+    bit_offset: 15
+    bit_size: 1
+  - name: DISCEN
+    description: Discontinuous mode.
+    bit_offset: 16
+    bit_size: 1
+  - name: AWDSGL
+    description: Enable the watchdog on a single channel or on all channels.
+    bit_offset: 22
+    bit_size: 1
+  - name: AWDEN
+    description: Analog watchdog enable.
+    bit_offset: 23
+    bit_size: 1
+  - name: AWDCH
+    description: Analog watchdog channel selection.
+    bit_offset: 26
+    bit_size: 3
+fieldset/CFGR2:
+  description: configuration register 2.
+  fields:
+  - name: CKMODE
+    description: CKMODE.
+    bit_offset: 30
+    bit_size: 2
+fieldset/CHSELR:
+  description: channel selection register.
+  fields:
+  - name: CHSEL0
+    description: Channel-x selection.
+    bit_offset: 0
+    bit_size: 1
+  - name: CHSEL1
+    description: Channel-x selection.
+    bit_offset: 1
+    bit_size: 1
+  - name: CHSEL2
+    description: Channel-x selection.
+    bit_offset: 2
+    bit_size: 1
+  - name: CHSEL3
+    description: Channel-x selection.
+    bit_offset: 3
+    bit_size: 1
+  - name: CHSEL4
+    description: Channel-x selection.
+    bit_offset: 4
+    bit_size: 1
+  - name: CHSEL5
+    description: Channel-x selection.
+    bit_offset: 5
+    bit_size: 1
+fieldset/CR:
+  description: control register.
+  fields:
+  - name: ADEN
+    description: ADC enable command.
+    bit_offset: 0
+    bit_size: 1
+  - name: ADDIS
+    description: ADC disable command.
+    bit_offset: 1
+    bit_size: 1
+  - name: ADSTART
+    description: ADC start conversion command.
+    bit_offset: 2
+    bit_size: 1
+  - name: ADSTP
+    description: ADC stop conversion command.
+    bit_offset: 4
+    bit_size: 1
+  - name: ADCAL
+    description: ADC calibration.
+    bit_offset: 31
+    bit_size: 1
+fieldset/CR2:
+  description: ADC config register 2.
+  fields:
+  - name: GCMP
+    description: GCMP.
+    bit_offset: 0
+    bit_size: 1
+  - name: SDIF
+    description: SDIF.
+    bit_offset: 1
+    bit_size: 1
+  - name: WAKE_EN
+    description: WAKE_EN.
+    bit_offset: 31
+    bit_size: 1
+fieldset/DR:
+  description: data register.
+  fields:
+  - name: DATA
+    description: Converted data.
+    bit_offset: 0
+    bit_size: 16
+fieldset/IER:
+  description: interrupt enable register.
+  fields:
+  - name: ADRDYIE
+    description: ADC ready interrupt enable.
+    bit_offset: 0
+    bit_size: 1
+  - name: EOSMPIE
+    description: End of sampling flag interrupt enable.
+    bit_offset: 1
+    bit_size: 1
+  - name: EOCIE
+    description: End of conversion interrupt enable.
+    bit_offset: 2
+    bit_size: 1
+  - name: EOSIE
+    description: End of conversion sequence interrupt enable.
+    bit_offset: 3
+    bit_size: 1
+  - name: OVRIE
+    description: Overrun interrupt enable.
+    bit_offset: 4
+    bit_size: 1
+  - name: AWDIE
+    description: Analog watchdog interrupt enable.
+    bit_offset: 7
+    bit_size: 1
+fieldset/ISR:
+  description: interrupt and status register.
+  fields:
+  - name: ADRDY
+    description: ADC ready.
+    bit_offset: 0
+    bit_size: 1
+  - name: EOSMP
+    description: End of sampling flag.
+    bit_offset: 1
+    bit_size: 1
+  - name: EOC
+    description: End of conversion flag.
+    bit_offset: 2
+    bit_size: 1
+  - name: EOS
+    description: End of sequence flag.
+    bit_offset: 3
+    bit_size: 1
+  - name: OVR
+    description: ADC overrun.
+    bit_offset: 4
+    bit_size: 1
+  - name: AWD
+    description: Analog watchdog flag.
+    bit_offset: 7
+    bit_size: 1
+fieldset/SMPR:
+  description: sampling time register.
+  fields:
+  - name: SMP
+    description: Sampling time selection.
+    bit_offset: 0
+    bit_size: 3
+fieldset/TR:
+  description: watchdog threshold register.
+  fields:
+  - name: LT
+    description: Analog watchdog lower threshold.
+    bit_offset: 0
+    bit_size: 12
+  - name: HT
+    description: Analog watchdog higher threshold.
+    bit_offset: 16
+    bit_size: 12

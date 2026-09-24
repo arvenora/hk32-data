@@ -1,0 +1,10 @@
+[workspace]
+members = ["hk32-metapac-gen"]
+resolver = "2"
+
+[workspace.dependencies]
+anyhow = "1"
+chiptool = { git = "https://github.com/embassy-rs/chiptool", rev = "be1bff3e9e1b27b090e69bd9ac753c66fdcce678" }
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_yaml = "=0.9.34-deprecated"

@@ -1,0 +1,30 @@
+block/AWU:
+  description: AWU module.
+  items:
+  - name: CR
+    description: AWU control Register.
+    byte_offset: 0
+    fieldset: CR
+  - name: SR
+    description: AWU status Register.
+    byte_offset: 4
+    access: Read
+    fieldset: SR
+fieldset/CR:
+  description: AWU control Register.
+  fields:
+  - name: AWU_CKSEL
+    description: AWU_CKSEL.
+    bit_offset: 0
+    bit_size: 1
+  - name: AWU_RLR
+    description: AWU_RLR.
+    bit_offset: 1
+    bit_size: 22
+fieldset/SR:
+  description: AWU status Register.
+  fields:
+  - name: AWU_BUSY
+    description: AWU_BUSY.
+    bit_offset: 0
+    bit_size: 1

@@ -1,0 +1,82 @@
+block/IOMUX:
+  description: IOMUX.
+  items:
+  - name: PIN_FUNC_SEL
+    description: PIN function select register.
+    byte_offset: 0
+    fieldset: PIN_FUNC_SEL
+  - name: PKG_PIN_SEL
+    description: PKG_PIN_SEL register.
+    byte_offset: 4
+    fieldset: PKG_PIN_SEL
+  - name: NRST_PIN_KEY
+    description: NRST_PIN_KEY register.
+    byte_offset: 8
+    fieldset: NRST_PIN_KEY
+  - name: NRST_PA0_SEL
+    description: NRST_PA0_SEL register.
+    byte_offset: 12
+    fieldset: NRST_PA0_SEL
+  - name: TIM2_CH0_IN_SEL
+    description: TIM2_CH0_IN_SEL register.
+    byte_offset: 16
+    fieldset: TIM2_CH0_IN_SEL
+fieldset/NRST_PA0_SEL:
+  description: NRST_PA0_SEL register.
+  fields:
+  - name: NRST_PA0_SEL
+    description: NRST_PA0_SEL.
+    bit_offset: 0
+    bit_size: 1
+fieldset/NRST_PIN_KEY:
+  description: NRST_PIN_KEY register.
+  fields:
+  - name: NRST_PIN_KEY
+    description: NRST_PIN_KEY.
+    bit_offset: 0
+    bit_size: 15
+fieldset/PIN_FUNC_SEL:
+  description: PIN function select register.
+  fields:
+  - name: PC3_TIM1_SEL
+    description: timer1 pin select.
+    bit_offset: 0
+    bit_size: 1
+  - name: PC4_TIM1_SEL
+    description: timer1 pin select.
+    bit_offset: 1
+    bit_size: 1
+  - name: PC5_I2C1_SEL
+    description: I2C1 pin select.
+    bit_offset: 2
+    bit_size: 1
+fieldset/PKG_PIN_SEL:
+  description: PKG_PIN_SEL register.
+  fields:
+  - name: NRSTPA0_PIN_SEL
+    description: NRST PA0 function select.
+    bit_offset: 0
+    bit_size: 1
+  - name: PB5_PIN_SEL
+    description: PB5_PIN_SEL.
+    bit_offset: 1
+    bit_size: 2
+  - name: PC4_PIN_SEL
+    description: PC4_PIN_SEL.
+    bit_offset: 3
+    bit_size: 2
+  - name: PD5_PIN_SEL
+    description: PD5_PIN_SEL.
+    bit_offset: 5
+    bit_size: 2
+  - name: PD6_PIN_SEL
+    description: PD6_PIN_SEL.
+    bit_offset: 7
+    bit_size: 2
+fieldset/TIM2_CH0_IN_SEL:
+  description: TIM2_CH0_IN_SEL register.
+  fields:
+  - name: TIM2_CH0_IN_SEL
+    description: TIM2_CH0_IN_SEL.
+    bit_offset: 0
+    bit_size: 2

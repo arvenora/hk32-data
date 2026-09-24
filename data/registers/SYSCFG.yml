@@ -1,0 +1,64 @@
+block/SYSCFG:
+  description: System configuration controller.
+  items:
+  - name: CFGR1
+    description: configuration register 1.
+    byte_offset: 0
+    fieldset: CFGR1
+  - name: EXTICR1
+    description: external interrupt configuration register 1.
+    byte_offset: 8
+    fieldset: EXTICR1
+  - name: EXTICR2
+    description: external interrupt configuration register 2.
+    byte_offset: 12
+    fieldset: EXTICR2
+fieldset/CFGR1:
+  description: configuration register 1.
+  fields:
+  - name: MEM_MODE
+    description: Memory mapping selection bits.
+    bit_offset: 0
+    bit_size: 2
+  - name: LOCKUP_LOCK
+    description: LOCKUP_LOCK.
+    bit_offset: 31
+    bit_size: 1
+fieldset/EXTICR1:
+  description: external interrupt configuration register 1.
+  fields:
+  - name: EXTI0
+    description: EXTI 0 configuration bits.
+    bit_offset: 0
+    bit_size: 4
+  - name: EXTI1
+    description: EXTI 1 configuration bits.
+    bit_offset: 4
+    bit_size: 4
+  - name: EXTI2
+    description: EXTI 2 configuration bits.
+    bit_offset: 8
+    bit_size: 4
+  - name: EXTI3
+    description: EXTI 3 configuration bits.
+    bit_offset: 12
+    bit_size: 4
+fieldset/EXTICR2:
+  description: external interrupt configuration register 2.
+  fields:
+  - name: EXTI4
+    description: EXTI 4 configuration bits.
+    bit_offset: 0
+    bit_size: 4
+  - name: EXTI5
+    description: EXTI 5 configuration bits.
+    bit_offset: 4
+    bit_size: 4
+  - name: EXTI6
+    description: EXTI 6 configuration bits.
+    bit_offset: 8
+    bit_size: 4
+  - name: EXTI7
+    description: EXTI 7 configuration bits.
+    bit_offset: 12
+    bit_size: 4

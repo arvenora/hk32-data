@@ -1,0 +1,573 @@
+block/EXTI:
+  description: External interrupt/event controller.
+  items:
+  - name: IMR
+    description: Interrupt mask register (EXTI_IMR).
+    byte_offset: 0
+    fieldset: IMR
+  - name: EMR
+    description: Event mask register (EXTI_EMR).
+    byte_offset: 4
+    fieldset: EMR
+  - name: RTSR
+    description: Rising Trigger selection register (EXTI_RTSR).
+    byte_offset: 8
+    fieldset: RTSR
+  - name: FTSR
+    description: Falling Trigger selection register (EXTI_FTSR).
+    byte_offset: 12
+    fieldset: FTSR
+  - name: SWIER
+    description: Software interrupt event register (EXTI_SWIER).
+    byte_offset: 16
+    fieldset: SWIER
+  - name: PR
+    description: Pending register (EXTI_PR).
+    byte_offset: 20
+    fieldset: PR
+fieldset/EMR:
+  description: Event mask register (EXTI_EMR).
+  fields:
+  - name: MR0
+    description: Event Mask on line 0.
+    bit_offset: 0
+    bit_size: 1
+  - name: MR1
+    description: Event Mask on line 1.
+    bit_offset: 1
+    bit_size: 1
+  - name: MR2
+    description: Event Mask on line 2.
+    bit_offset: 2
+    bit_size: 1
+  - name: MR3
+    description: Event Mask on line 3.
+    bit_offset: 3
+    bit_size: 1
+  - name: MR4
+    description: Event Mask on line 4.
+    bit_offset: 4
+    bit_size: 1
+  - name: MR5
+    description: Event Mask on line 5.
+    bit_offset: 5
+    bit_size: 1
+  - name: MR6
+    description: Event Mask on line 6.
+    bit_offset: 6
+    bit_size: 1
+  - name: MR7
+    description: Event Mask on line 7.
+    bit_offset: 7
+    bit_size: 1
+  - name: MR8
+    description: Event Mask on line 8.
+    bit_offset: 8
+    bit_size: 1
+  - name: MR9
+    description: Event Mask on line 9.
+    bit_offset: 9
+    bit_size: 1
+  - name: MR10
+    description: Event Mask on line 10.
+    bit_offset: 10
+    bit_size: 1
+  - name: MR11
+    description: Event Mask on line 11.
+    bit_offset: 11
+    bit_size: 1
+  - name: MR12
+    description: Event Mask on line 12.
+    bit_offset: 12
+    bit_size: 1
+  - name: MR13
+    description: Event Mask on line 13.
+    bit_offset: 13
+    bit_size: 1
+  - name: MR14
+    description: Event Mask on line 14.
+    bit_offset: 14
+    bit_size: 1
+  - name: MR15
+    description: Event Mask on line 15.
+    bit_offset: 15
+    bit_size: 1
+  - name: MR16
+    description: Event Mask on line 16.
+    bit_offset: 16
+    bit_size: 1
+  - name: MR17
+    description: Event Mask on line 17.
+    bit_offset: 17
+    bit_size: 1
+  - name: MR18
+    description: Event Mask on line 18.
+    bit_offset: 18
+    bit_size: 1
+  - name: MR19
+    description: Event Mask on line 19.
+    bit_offset: 19
+    bit_size: 1
+  - name: MR20
+    description: Event Mask on line 20.
+    bit_offset: 20
+    bit_size: 1
+  - name: MR21
+    description: Event Mask on line 21.
+    bit_offset: 21
+    bit_size: 1
+  - name: MR22
+    description: Event Mask on line 22.
+    bit_offset: 22
+    bit_size: 1
+  - name: MR23
+    description: Event Mask on line 23.
+    bit_offset: 23
+    bit_size: 1
+  - name: MR24
+    description: Event Mask on line 24.
+    bit_offset: 24
+    bit_size: 1
+  - name: MR25
+    description: Event Mask on line 25.
+    bit_offset: 25
+    bit_size: 1
+  - name: MR26
+    description: Event Mask on line 26.
+    bit_offset: 26
+    bit_size: 1
+  - name: MR27
+    description: Event Mask on line 27.
+    bit_offset: 27
+    bit_size: 1
+fieldset/FTSR:
+  description: Falling Trigger selection register (EXTI_FTSR).
+  fields:
+  - name: TR0
+    description: Falling trigger event configuration of line 0.
+    bit_offset: 0
+    bit_size: 1
+  - name: TR1
+    description: Falling trigger event configuration of line 1.
+    bit_offset: 1
+    bit_size: 1
+  - name: TR2
+    description: Falling trigger event configuration of line 2.
+    bit_offset: 2
+    bit_size: 1
+  - name: TR3
+    description: Falling trigger event configuration of line 3.
+    bit_offset: 3
+    bit_size: 1
+  - name: TR4
+    description: Falling trigger event configuration of line 4.
+    bit_offset: 4
+    bit_size: 1
+  - name: TR5
+    description: Falling trigger event configuration of line 5.
+    bit_offset: 5
+    bit_size: 1
+  - name: TR6
+    description: Falling trigger event configuration of line 6.
+    bit_offset: 6
+    bit_size: 1
+  - name: TR7
+    description: Falling trigger event configuration of line 7.
+    bit_offset: 7
+    bit_size: 1
+  - name: TR8
+    description: Falling trigger event configuration of line 8.
+    bit_offset: 8
+    bit_size: 1
+  - name: TR9
+    description: Falling trigger event configuration of line 9.
+    bit_offset: 9
+    bit_size: 1
+  - name: TR10
+    description: Falling trigger event configuration of line 10.
+    bit_offset: 10
+    bit_size: 1
+  - name: TR11
+    description: Falling trigger event configuration of line 11.
+    bit_offset: 11
+    bit_size: 1
+  - name: TR12
+    description: Falling trigger event configuration of line 12.
+    bit_offset: 12
+    bit_size: 1
+  - name: TR13
+    description: Falling trigger event configuration of line 13.
+    bit_offset: 13
+    bit_size: 1
+  - name: TR14
+    description: Falling trigger event configuration of line 14.
+    bit_offset: 14
+    bit_size: 1
+  - name: TR15
+    description: Falling trigger event configuration of line 15.
+    bit_offset: 15
+    bit_size: 1
+  - name: TR16
+    description: Falling trigger event configuration of line 16.
+    bit_offset: 16
+    bit_size: 1
+  - name: TR17
+    description: Falling trigger event configuration of line 17.
+    bit_offset: 17
+    bit_size: 1
+  - name: TR19
+    description: Falling trigger event configuration of line 19.
+    bit_offset: 19
+    bit_size: 1
+fieldset/IMR:
+  description: Interrupt mask register (EXTI_IMR).
+  fields:
+  - name: MR0
+    description: Interrupt Mask on line 0.
+    bit_offset: 0
+    bit_size: 1
+  - name: MR1
+    description: Interrupt Mask on line 1.
+    bit_offset: 1
+    bit_size: 1
+  - name: MR2
+    description: Interrupt Mask on line 2.
+    bit_offset: 2
+    bit_size: 1
+  - name: MR3
+    description: Interrupt Mask on line 3.
+    bit_offset: 3
+    bit_size: 1
+  - name: MR4
+    description: Interrupt Mask on line 4.
+    bit_offset: 4
+    bit_size: 1
+  - name: MR5
+    description: Interrupt Mask on line 5.
+    bit_offset: 5
+    bit_size: 1
+  - name: MR6
+    description: Interrupt Mask on line 6.
+    bit_offset: 6
+    bit_size: 1
+  - name: MR7
+    description: Interrupt Mask on line 7.
+    bit_offset: 7
+    bit_size: 1
+  - name: MR8
+    description: Interrupt Mask on line 8.
+    bit_offset: 8
+    bit_size: 1
+  - name: MR9
+    description: Interrupt Mask on line 9.
+    bit_offset: 9
+    bit_size: 1
+  - name: MR10
+    description: Interrupt Mask on line 10.
+    bit_offset: 10
+    bit_size: 1
+  - name: MR11
+    description: Interrupt Mask on line 11.
+    bit_offset: 11
+    bit_size: 1
+  - name: MR12
+    description: Interrupt Mask on line 12.
+    bit_offset: 12
+    bit_size: 1
+  - name: MR13
+    description: Interrupt Mask on line 13.
+    bit_offset: 13
+    bit_size: 1
+  - name: MR14
+    description: Interrupt Mask on line 14.
+    bit_offset: 14
+    bit_size: 1
+  - name: MR15
+    description: Interrupt Mask on line 15.
+    bit_offset: 15
+    bit_size: 1
+  - name: MR16
+    description: Interrupt Mask on line 16.
+    bit_offset: 16
+    bit_size: 1
+  - name: MR17
+    description: Interrupt Mask on line 17.
+    bit_offset: 17
+    bit_size: 1
+  - name: MR18
+    description: Interrupt Mask on line 18.
+    bit_offset: 18
+    bit_size: 1
+  - name: MR19
+    description: Interrupt Mask on line 19.
+    bit_offset: 19
+    bit_size: 1
+  - name: MR20
+    description: Interrupt Mask on line 20.
+    bit_offset: 20
+    bit_size: 1
+  - name: MR21
+    description: Interrupt Mask on line 21.
+    bit_offset: 21
+    bit_size: 1
+  - name: MR22
+    description: Interrupt Mask on line 22.
+    bit_offset: 22
+    bit_size: 1
+  - name: MR23
+    description: Interrupt Mask on line 23.
+    bit_offset: 23
+    bit_size: 1
+  - name: MR24
+    description: Interrupt Mask on line 24.
+    bit_offset: 24
+    bit_size: 1
+  - name: MR25
+    description: Interrupt Mask on line 25.
+    bit_offset: 25
+    bit_size: 1
+  - name: MR26
+    description: Interrupt Mask on line 26.
+    bit_offset: 26
+    bit_size: 1
+  - name: MR27
+    description: Interrupt Mask on line 27.
+    bit_offset: 27
+    bit_size: 1
+fieldset/PR:
+  description: Pending register (EXTI_PR).
+  fields:
+  - name: PR0
+    description: Pending bit 0.
+    bit_offset: 0
+    bit_size: 1
+  - name: PR1
+    description: Pending bit 1.
+    bit_offset: 1
+    bit_size: 1
+  - name: PR2
+    description: Pending bit 2.
+    bit_offset: 2
+    bit_size: 1
+  - name: PR3
+    description: Pending bit 3.
+    bit_offset: 3
+    bit_size: 1
+  - name: PR4
+    description: Pending bit 4.
+    bit_offset: 4
+    bit_size: 1
+  - name: PR5
+    description: Pending bit 5.
+    bit_offset: 5
+    bit_size: 1
+  - name: PR6
+    description: Pending bit 6.
+    bit_offset: 6
+    bit_size: 1
+  - name: PR7
+    description: Pending bit 7.
+    bit_offset: 7
+    bit_size: 1
+  - name: PR8
+    description: Pending bit 8.
+    bit_offset: 8
+    bit_size: 1
+  - name: PR9
+    description: Pending bit 9.
+    bit_offset: 9
+    bit_size: 1
+  - name: PR10
+    description: Pending bit 10.
+    bit_offset: 10
+    bit_size: 1
+  - name: PR11
+    description: Pending bit 11.
+    bit_offset: 11
+    bit_size: 1
+  - name: PR12
+    description: Pending bit 12.
+    bit_offset: 12
+    bit_size: 1
+  - name: PR13
+    description: Pending bit 13.
+    bit_offset: 13
+    bit_size: 1
+  - name: PR14
+    description: Pending bit 14.
+    bit_offset: 14
+    bit_size: 1
+  - name: PR15
+    description: Pending bit 15.
+    bit_offset: 15
+    bit_size: 1
+  - name: PR16
+    description: Pending bit 16.
+    bit_offset: 16
+    bit_size: 1
+  - name: PR17
+    description: Pending bit 17.
+    bit_offset: 17
+    bit_size: 1
+  - name: PR19
+    description: Pending bit 19.
+    bit_offset: 19
+    bit_size: 1
+fieldset/RTSR:
+  description: Rising Trigger selection register (EXTI_RTSR).
+  fields:
+  - name: TR0
+    description: Rising trigger event configuration of line 0.
+    bit_offset: 0
+    bit_size: 1
+  - name: TR1
+    description: Rising trigger event configuration of line 1.
+    bit_offset: 1
+    bit_size: 1
+  - name: TR2
+    description: Rising trigger event configuration of line 2.
+    bit_offset: 2
+    bit_size: 1
+  - name: TR3
+    description: Rising trigger event configuration of line 3.
+    bit_offset: 3
+    bit_size: 1
+  - name: TR4
+    description: Rising trigger event configuration of line 4.
+    bit_offset: 4
+    bit_size: 1
+  - name: TR5
+    description: Rising trigger event configuration of line 5.
+    bit_offset: 5
+    bit_size: 1
+  - name: TR6
+    description: Rising trigger event configuration of line 6.
+    bit_offset: 6
+    bit_size: 1
+  - name: TR7
+    description: Rising trigger event configuration of line 7.
+    bit_offset: 7
+    bit_size: 1
+  - name: TR8
+    description: Rising trigger event configuration of line 8.
+    bit_offset: 8
+    bit_size: 1
+  - name: TR9
+    description: Rising trigger event configuration of line 9.
+    bit_offset: 9
+    bit_size: 1
+  - name: TR10
+    description: Rising trigger event configuration of line 10.
+    bit_offset: 10
+    bit_size: 1
+  - name: TR11
+    description: Rising trigger event configuration of line 11.
+    bit_offset: 11
+    bit_size: 1
+  - name: TR12
+    description: Rising trigger event configuration of line 12.
+    bit_offset: 12
+    bit_size: 1
+  - name: TR13
+    description: Rising trigger event configuration of line 13.
+    bit_offset: 13
+    bit_size: 1
+  - name: TR14
+    description: Rising trigger event configuration of line 14.
+    bit_offset: 14
+    bit_size: 1
+  - name: TR15
+    description: Rising trigger event configuration of line 15.
+    bit_offset: 15
+    bit_size: 1
+  - name: TR16
+    description: Rising trigger event configuration of line 16.
+    bit_offset: 16
+    bit_size: 1
+  - name: TR17
+    description: Rising trigger event configuration of line 17.
+    bit_offset: 17
+    bit_size: 1
+  - name: TR19
+    description: Rising trigger event configuration of line 19.
+    bit_offset: 19
+    bit_size: 1
+fieldset/SWIER:
+  description: Software interrupt event register (EXTI_SWIER).
+  fields:
+  - name: SWIER0
+    description: Software Interrupt on line 0.
+    bit_offset: 0
+    bit_size: 1
+  - name: SWIER1
+    description: Software Interrupt on line 1.
+    bit_offset: 1
+    bit_size: 1
+  - name: SWIER2
+    description: Software Interrupt on line 2.
+    bit_offset: 2
+    bit_size: 1
+  - name: SWIER3
+    description: Software Interrupt on line 3.
+    bit_offset: 3
+    bit_size: 1
+  - name: SWIER4
+    description: Software Interrupt on line 4.
+    bit_offset: 4
+    bit_size: 1
+  - name: SWIER5
+    description: Software Interrupt on line 5.
+    bit_offset: 5
+    bit_size: 1
+  - name: SWIER6
+    description: Software Interrupt on line 6.
+    bit_offset: 6
+    bit_size: 1
+  - name: SWIER7
+    description: Software Interrupt on line 7.
+    bit_offset: 7
+    bit_size: 1
+  - name: SWIER8
+    description: Software Interrupt on line 8.
+    bit_offset: 8
+    bit_size: 1
+  - name: SWIER9
+    description: Software Interrupt on line 9.
+    bit_offset: 9
+    bit_size: 1
+  - name: SWIER10
+    description: Software Interrupt on line 10.
+    bit_offset: 10
+    bit_size: 1
+  - name: SWIER11
+    description: Software Interrupt on line 11.
+    bit_offset: 11
+    bit_size: 1
+  - name: SWIER12
+    description: Software Interrupt on line 12.
+    bit_offset: 12
+    bit_size: 1
+  - name: SWIER13
+    description: Software Interrupt on line 13.
+    bit_offset: 13
+    bit_size: 1
+  - name: SWIER14
+    description: Software Interrupt on line 14.
+    bit_offset: 14
+    bit_size: 1
+  - name: SWIER15
+    description: Software Interrupt on line 15.
+    bit_offset: 15
+    bit_size: 1
+  - name: SWIER16
+    description: Software Interrupt on line 16.
+    bit_offset: 16
+    bit_size: 1
+  - name: SWIER17
+    description: Software Interrupt on line 17.
+    bit_offset: 17
+    bit_size: 1
+  - name: SWIER19
+    description: Software Interrupt on line 19.
+    bit_offset: 19
+    bit_size: 1

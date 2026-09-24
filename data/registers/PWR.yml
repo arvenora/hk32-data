@@ -1,0 +1,116 @@
+block/PWR:
+  description: Power control.
+  items:
+  - name: CR
+    description: power control register.
+    byte_offset: 0
+    fieldset: CR
+  - name: CSR
+    description: power control/status register.
+    byte_offset: 4
+    fieldset: CSR
+  - name: PWR_WUP_POL
+    description: power wakeup polarity register.
+    byte_offset: 52
+    fieldset: PWR_WUP_POL
+  - name: PWR_PORPDR_CFG
+    description: power PDR register.
+    byte_offset: 60
+    fieldset: PWR_PORPDR_CFG
+  - name: PWR_SAWUT
+    description: standby wakeup timer.
+    byte_offset: 156
+    fieldset: PWR_SAWUT
+  - name: PWR_SBKP0
+    description: standby backup0.
+    byte_offset: 160
+    fieldset: PWR_SBKP0
+  - name: PWR_SBKP1
+    description: standby backup1.
+    byte_offset: 164
+    fieldset: PWR_SBKP1
+fieldset/CR:
+  description: power control register.
+  fields:
+  - name: LPDS
+    description: Low-power deep sleep.
+    bit_offset: 0
+    bit_size: 1
+  - name: PDDS
+    description: Power down deepsleep.
+    bit_offset: 1
+    bit_size: 1
+  - name: CWUF
+    description: Clear wakeup flag.
+    bit_offset: 2
+    bit_size: 1
+  - name: CSBF
+    description: Clear standby flag.
+    bit_offset: 3
+    bit_size: 1
+  - name: DBP
+    description: Disable backup domain write protection.
+    bit_offset: 8
+    bit_size: 1
+fieldset/CSR:
+  description: power control/status register.
+  fields:
+  - name: WUF
+    description: Wakeup flag.
+    bit_offset: 0
+    bit_size: 1
+  - name: SBF
+    description: Standby flag.
+    bit_offset: 1
+    bit_size: 1
+  - name: LDORDY
+    description: LDO status.
+    bit_offset: 3
+    bit_size: 1
+  - name: EWUP1
+    description: Enable WKUP pin 1.
+    bit_offset: 8
+    bit_size: 1
+  - name: SAWU
+    description: Enable standby wakeup.
+    bit_offset: 15
+    bit_size: 1
+fieldset/PWR_PORPDR_CFG:
+  description: power PDR register.
+  fields:
+  - name: PDR_PD
+    description: PDR power down.
+    bit_offset: 0
+    bit_size: 1
+  - name: KEY
+    description: KEY.
+    bit_offset: 8
+    bit_size: 8
+fieldset/PWR_SAWUT:
+  description: standby wakeup timer.
+  fields:
+  - name: TIME_CNT
+    description: TIME_CNT.
+    bit_offset: 0
+    bit_size: 16
+fieldset/PWR_SBKP0:
+  description: standby backup0.
+  fields:
+  - name: SBKP0
+    description: SBKP0.
+    bit_offset: 0
+    bit_size: 16
+fieldset/PWR_SBKP1:
+  description: standby backup1.
+  fields:
+  - name: SBKP1
+    description: SBKP1.
+    bit_offset: 0
+    bit_size: 16
+fieldset/PWR_WUP_POL:
+  description: power wakeup polarity register.
+  fields:
+  - name: WUPOL1
+    description: WKUP1 polarity.
+    bit_offset: 0
+    bit_size: 1

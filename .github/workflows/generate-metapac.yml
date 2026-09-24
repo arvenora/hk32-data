@@ -1,0 +1,97 @@
+name: Generate hk32-metapac
+
+on:
+  push:
+    branches: [master, main]
+  workflow_dispatch:
+
+concurrency:
+  group: generate-hk32-metapac
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out hk32-data
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Check out hk32-metapac
+        uses: actions/checkout@v4
+        with:
+          repository: arvenora/hk32-metapac
+          ref: main
+          path: metapac
+          token: ${{ secrets.METAPAC_REPO_TOKEN }}
+          fetch-depth: 0
+
+      - name: Install Rust target
+        run: rustup target add thumbv6m-none-eabi
+
+      - name: Validate and generate PAC
+        run: |
+          cargo fmt --all -- --check
+          cargo test -p hk32-metapac-gen
+          cargo run -p hk32-metapac-gen -- \
+            --output-dir "$RUNNER_TEMP/hk32-metapac"
+
+      - name: Format generated PAC
+        run: cargo fmt --manifest-path "$RUNNER_TEMP/hk32-metapac/Cargo.toml"
+
+      - name: Check every chip feature
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          features=$(cargo metadata \
+            --manifest-path "$RUNNER_TEMP/hk32-metapac/Cargo.toml" \
+            --no-deps \
+            --format-version 1 \
+            | jq -r '.packages[0].features | keys[] | select(. != "rt" and . != "defmt")')
+
+          test -n "$features"
+          while read -r feature; do
+            echo "Checking $feature"
+            cargo check \
+              --manifest-path "$RUNNER_TEMP/hk32-metapac/Cargo.toml" \
+              --target thumbv6m-none-eabi \
+              --features "$feature,rt"
+          done <<< "$features"
+
+      - name: Replace generated sources
+        run: |
+          rsync -a --delete \
+            --exclude='.git/' \
+            --exclude='README.md' \
+            --exclude='LICENSE' \
+            "$RUNNER_TEMP/hk32-metapac/" metapac/
+
+          # Keep repository-level documentation and licensing if the generated
+          # repository already maintains them. Bootstrap them on first sync.
+          test -f metapac/README.md || cp README.md metapac/README.md
+          test -f metapac/LICENSE || cp LICENSE metapac/LICENSE
+
+      - name: Commit and push generated sources
+        working-directory: metapac
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          git config user.name "hk32-data generator"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --all
+
+          if git diff --cached --quiet; then
+            echo "Generated PAC is already up to date."
+            exit 0
+          fi
+
+          git commit -m "Generated from hk32-data ${SOURCE_SHA}"
+          git tag -a "hk32-data-${SOURCE_SHA}" -m "Generated from hk32-data ${SOURCE_SHA}"
+          git push origin HEAD:main --follow-tags

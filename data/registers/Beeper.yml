@@ -1,0 +1,41 @@
+block/Beeper:
+  description: Beeper module.
+  items:
+  - name: BEEP_CFGR
+    description: BEEP_CFGR Register.
+    byte_offset: 0
+    fieldset: BEEP_CFGR
+  - name: BEEP_CR
+    description: BEEP_CR Register.
+    byte_offset: 4
+    fieldset: BEEP_CR
+fieldset/BEEP_CFGR:
+  description: BEEP_CFGR Register.
+  fields:
+  - name: BEEP_CKSEL
+    description: BEEP_CKSEL.
+    bit_offset: 0
+    bit_size: 1
+  - name: BEEP_FREQ
+    description: BEEP_FREQ.
+    bit_offset: 1
+    bit_size: 2
+  - name: TRGO_PRE
+    description: TRGO_PRE.
+    bit_offset: 3
+    bit_size: 2
+fieldset/BEEP_CR:
+  description: BEEP_CR Register.
+  fields:
+  - name: BEEP_EN
+    description: BEEP_EN.
+    bit_offset: 0
+    bit_size: 1
+  - name: TRGO_EN
+    description: TRGO_EN.
+    bit_offset: 1
+    bit_size: 1
+  - name: CR_WBUSY
+    description: CR_WBUSY.
+    bit_offset: 31
+    bit_size: 1

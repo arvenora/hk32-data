@@ -1,0 +1,231 @@
+block/NVIC:
+  description: Nested Vectored Interrupt Controller.
+  items:
+  - name: ISER
+    description: Interrupt Set Enable Register.
+    byte_offset: 0
+    fieldset: ISER
+  - name: ICER
+    description: Interrupt Clear Enable Register.
+    byte_offset: 128
+    fieldset: ICER
+  - name: ISPR
+    description: Interrupt Set-Pending Register.
+    byte_offset: 256
+    fieldset: ISPR
+  - name: ICPR
+    description: Interrupt Clear-Pending Register.
+    byte_offset: 384
+    fieldset: ICPR
+  - name: IPR0
+    description: Interrupt Priority Register 0.
+    byte_offset: 768
+    fieldset: IPR0
+  - name: IPR1
+    description: Interrupt Priority Register 1.
+    byte_offset: 772
+    fieldset: IPR1
+  - name: IPR2
+    description: Interrupt Priority Register 2.
+    byte_offset: 776
+    fieldset: IPR2
+  - name: IPR3
+    description: Interrupt Priority Register 3.
+    byte_offset: 780
+    fieldset: IPR3
+  - name: IPR4
+    description: Interrupt Priority Register 4.
+    byte_offset: 784
+    fieldset: IPR4
+  - name: IPR5
+    description: Interrupt Priority Register 5.
+    byte_offset: 788
+    fieldset: IPR5
+  - name: IPR6
+    description: Interrupt Priority Register 6.
+    byte_offset: 792
+    fieldset: IPR6
+  - name: IPR7
+    description: Interrupt Priority Register 7.
+    byte_offset: 796
+    fieldset: IPR7
+fieldset/ICER:
+  description: Interrupt Clear Enable Register.
+  fields:
+  - name: CLRENA
+    description: CLRENA.
+    bit_offset: 0
+    bit_size: 32
+fieldset/ICPR:
+  description: Interrupt Clear-Pending Register.
+  fields:
+  - name: CLRPEND
+    description: CLRPEND.
+    bit_offset: 0
+    bit_size: 32
+fieldset/IPR0:
+  description: Interrupt Priority Register 0.
+  fields:
+  - name: PRI_00
+    description: PRI_00.
+    bit_offset: 6
+    bit_size: 2
+  - name: PRI_01
+    description: PRI_01.
+    bit_offset: 14
+    bit_size: 2
+  - name: PRI_02
+    description: PRI_02.
+    bit_offset: 22
+    bit_size: 2
+  - name: PRI_03
+    description: PRI_03.
+    bit_offset: 30
+    bit_size: 2
+fieldset/IPR1:
+  description: Interrupt Priority Register 1.
+  fields:
+  - name: PRI_40
+    description: PRI_40.
+    bit_offset: 6
+    bit_size: 2
+  - name: PRI_41
+    description: PRI_41.
+    bit_offset: 14
+    bit_size: 2
+  - name: PRI_42
+    description: PRI_42.
+    bit_offset: 22
+    bit_size: 2
+  - name: PRI_43
+    description: PRI_43.
+    bit_offset: 30
+    bit_size: 2
+fieldset/IPR2:
+  description: Interrupt Priority Register 2.
+  fields:
+  - name: PRI_80
+    description: PRI_80.
+    bit_offset: 6
+    bit_size: 2
+  - name: PRI_81
+    description: PRI_81.
+    bit_offset: 14
+    bit_size: 2
+  - name: PRI_82
+    description: PRI_82.
+    bit_offset: 22
+    bit_size: 2
+  - name: PRI_83
+    description: PRI_83.
+    bit_offset: 30
+    bit_size: 2
+fieldset/IPR3:
+  description: Interrupt Priority Register 3.
+  fields:
+  - name: PRI_120
+    description: PRI_120.
+    bit_offset: 6
+    bit_size: 2
+  - name: PRI_121
+    description: PRI_121.
+    bit_offset: 14
+    bit_size: 2
+  - name: PRI_122
+    description: PRI_122.
+    bit_offset: 22
+    bit_size: 2
+  - name: PRI_123
+    description: PRI_123.
+    bit_offset: 30
+    bit_size: 2
+fieldset/IPR4:
+  description: Interrupt Priority Register 4.
+  fields:
+  - name: PRI_160
+    description: PRI_160.
+    bit_offset: 6
+    bit_size: 2
+  - name: PRI_161
+    description: PRI_161.
+    bit_offset: 14
+    bit_size: 2
+  - name: PRI_162
+    description: PRI_162.
+    bit_offset: 22
+    bit_size: 2
+  - name: PRI_163
+    description: PRI_163.
+    bit_offset: 30
+    bit_size: 2
+fieldset/IPR5:
+  description: Interrupt Priority Register 5.
+  fields:
+  - name: PRI_200
+    description: PRI_200.
+    bit_offset: 6
+    bit_size: 2
+  - name: PRI_201
+    description: PRI_201.
+    bit_offset: 14
+    bit_size: 2
+  - name: PRI_202
+    description: PRI_202.
+    bit_offset: 22
+    bit_size: 2
+  - name: PRI_203
+    description: PRI_203.
+    bit_offset: 30
+    bit_size: 2
+fieldset/IPR6:
+  description: Interrupt Priority Register 6.
+  fields:
+  - name: PRI_240
+    description: PRI_240.
+    bit_offset: 6
+    bit_size: 2
+  - name: PRI_241
+    description: PRI_241.
+    bit_offset: 14
+    bit_size: 2
+  - name: PRI_242
+    description: PRI_242.
+    bit_offset: 22
+    bit_size: 2
+  - name: PRI_243
+    description: PRI_243.
+    bit_offset: 30
+    bit_size: 2
+fieldset/IPR7:
+  description: Interrupt Priority Register 7.
+  fields:
+  - name: PRI_280
+    description: PRI_280.
+    bit_offset: 6
+    bit_size: 2
+  - name: PRI_281
+    description: PRI_281.
+    bit_offset: 14
+    bit_size: 2
+  - name: PRI_282
+    description: PRI_282.
+    bit_offset: 22
+    bit_size: 2
+  - name: PRI_283
+    description: PRI_283.
+    bit_offset: 30
+    bit_size: 2
+fieldset/ISER:
+  description: Interrupt Set Enable Register.
+  fields:
+  - name: SETENA
+    description: SETENA.
+    bit_offset: 0
+    bit_size: 32
+fieldset/ISPR:
+  description: Interrupt Set-Pending Register.
+  fields:
+  - name: SETPEND
+    description: SETPEND.
+    bit_offset: 0
+    bit_size: 32
