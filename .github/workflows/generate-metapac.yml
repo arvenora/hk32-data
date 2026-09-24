@@ -53,7 +53,7 @@ jobs:
             --manifest-path "$RUNNER_TEMP/hk32-metapac/Cargo.toml" \
             --no-deps \
             --format-version 1 \
-            | jq -r '.packages[0].features | keys[] | select(. != "rt" and . != "defmt")')
+            | jq -r '.packages[0].features | keys[] | select(. != "default" and . != "rt" and . != "defmt")')
 
           test -n "$features"
           while read -r feature; do
