@@ -15,7 +15,11 @@ pub struct GeneratedChip {
     pub feature: String,
 }
 
-pub fn write_metapac(chips: &[GeneratedChip], output_dir: &Path) -> Result<()> {
+pub fn write_metapac(
+    chips: &[GeneratedChip],
+    output_dir: &Path,
+    version: &str,
+) -> Result<()> {
     let chips_dir = output_dir.join("src/chips");
     fs::create_dir_all(&chips_dir)
         .with_context(|| format!("creating {}", chips_dir.display()))?;
@@ -44,9 +48,10 @@ pub fn write_metapac(chips: &[GeneratedChip], output_dir: &Path) -> Result<()> {
         )?;
     }
 
-    fs::write(output_dir.join("Cargo.toml"), render_cargo_toml(chips))?;
-    fs::write(output_dir.join("README.md"), render_readme(chips))?;
-    fs::write(output_dir.join("LICENSE"), include_str!("../../LICENSE"))?;
+    fs::write(
+        output_dir.join("Cargo.toml"),
+        render_cargo_toml(chips, version),
+    )?;
     fs::write(output_dir.join("build.rs"), render_build_rs(chips))?;
     fs::write(output_dir.join("src/lib.rs"), render_lib_rs())?;
     format_rust_files(output_dir)?;
@@ -90,7 +95,7 @@ fn render_memory_x(memory: &Memory) -> String {
     )
 }
 
-fn render_cargo_toml(chips: &[GeneratedChip]) -> String {
+fn render_cargo_toml(chips: &[GeneratedChip], version: &str) -> String {
     let default_feature = &chips[0].feature;
     let features = chips
         .iter()
@@ -102,23 +107,14 @@ fn render_cargo_toml(chips: &[GeneratedChip]) -> String {
 
 [package]
 name = "hk32-metapac"
-version = "0.1.0"
+version = "{version}"
 edition = "2024"
 authors = ["Voltangle <me@voltangle.dev>"]
 description = "Peripheral access crate for HK32 microcontrollers"
 license = "Apache-2.0"
 repository = "https://github.com/arvenora/hk32-metapac"
-readme = "README.md"
 keywords = ["hk32", "embedded", "no-std", "arm"]
 categories = ["embedded", "no-std", "hardware-support"]
-include = [
-    "src/**/*.rs",
-    "src/**/*.x",
-    "Cargo.toml",
-    "README.md",
-    "LICENSE",
-    "build.rs",
-]
 
 [features]
 default = ["{default_feature}"]
@@ -136,17 +132,6 @@ features = ["{default_feature}", "rt"]
 default-target = "thumbv6m-none-eabi"
 targets = []
 "#
-    )
-}
-
-fn render_readme(chips: &[GeneratedChip]) -> String {
-    let chips = chips
-        .iter()
-        .map(|chip| format!("- `{}`", chip.chip.name))
-        .collect::<Vec<_>>()
-        .join("\n");
-    format!(
-        "# hk32-metapac\n\nPeripheral access crate for HK32 microcontrollers.\n\n## Supported chips\n\n{chips}\n\nThe first listed chip is enabled by default. To select another chip, disable default features:\n\n```toml\nhk32-metapac = {{ version = \"0.1\", default-features = false, features = [\"hk32f030md4p6\", \"rt\"] }}\n```\n"
     )
 }
 

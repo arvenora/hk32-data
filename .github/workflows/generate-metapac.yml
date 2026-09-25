@@ -34,12 +34,29 @@ jobs:
       - name: Install Rust target
         run: rustup target add thumbv6m-none-eabi
 
+      - name: Read metapac package version
+        id: package-version
+        shell: bash
+        run: |
+          set -euo pipefail
+          if test -f metapac/Cargo.toml; then
+            version=$(cargo metadata \
+              --manifest-path metapac/Cargo.toml \
+              --no-deps \
+              --format-version 1 \
+              | jq -r '.packages[0].version')
+          else
+            version=0.1.0
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
       - name: Validate and generate PAC
         run: |
           cargo fmt --all -- --check
           cargo test -p hk32-metapac-gen
           cargo run -p hk32-metapac-gen -- \
-            --output-dir "$RUNNER_TEMP/hk32-metapac"
+            --output-dir "$RUNNER_TEMP/hk32-metapac" \
+            --package-version "${{ steps.package-version.outputs.version }}"
 
       - name: Check every chip feature
         shell: bash
@@ -68,8 +85,14 @@ jobs:
             --exclude='.git/' \
             --exclude='target/' \
             --exclude='Cargo.lock' \
+            --exclude='README.md' \
+            --exclude='LICENSE' \
             "$RUNNER_TEMP/hk32-metapac/" metapac/
 
+          # Documentation and licensing belong to the metapac repository, not
+          # to the PAC code generator. Bootstrap them on the first sync.
+          test -f metapac/README.md || cp README.md metapac/README.md
+          test -f metapac/LICENSE || cp LICENSE metapac/LICENSE
           cp .gitignore metapac/.gitignore
 
       - name: Commit and push generated sources
@@ -90,5 +113,4 @@ jobs:
           fi
 
           git commit -m "Generated from hk32-data ${SOURCE_SHA}"
-          git tag -a "hk32-data-${SOURCE_SHA}" -m "Generated from hk32-data ${SOURCE_SHA}"
-          git push origin HEAD:master --follow-tags
+          git push origin HEAD:master

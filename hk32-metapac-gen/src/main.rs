@@ -27,6 +27,10 @@ struct Args {
     /// Generated metapac crate directory.
     #[arg(long, default_value = "generated/hk32-metapac")]
     output_dir: PathBuf,
+
+    /// Version to write into the generated metapac package.
+    #[arg(long, default_value = "0.1.0")]
+    package_version: String,
 }
 
 fn main() -> Result<()> {
@@ -50,7 +54,7 @@ fn main() -> Result<()> {
         generated.push(GeneratedChip { chip, ir, feature });
     }
 
-    write_metapac(&generated, &args.output_dir)?;
+    write_metapac(&generated, &args.output_dir, &args.package_version)?;
     println!(
         "generated {} chip(s) in {}",
         generated.len(),
